@@ -1,14 +1,24 @@
-
 const { PrismaClient } = require('@prisma/client');
-const prisma = new PrismaClient();
+const bcrypt = require('bcryptjs');
+
+const prisma = new PrismaClient({
+  datasources: {
+    db: {
+      url: process.env.DATABASE_URL || 'postgresql://postgres:postgres@localhost:5432/testdb',
+    },
+  },
+});
 
 async function main() {
-  // Usuario de prueba (email y password ficticios)
+  // Hashea la contraseña de prueba
+  const hashedPassword = await bcrypt.hash('demo123', 10);
+
+  // Usuario de prueba (email y password ficticios, password hasheada)
   const usuario = await prisma.usuario.create({
     data: {
       nombre: 'Usuario Demo',
       email: 'demo@example.com',
-      password: 'demo123', // En un entorno real, asegúrate de hashear la contraseña
+      password: hashedPassword, // Contraseña hasheada
       clientes: {
         create: [
           {
