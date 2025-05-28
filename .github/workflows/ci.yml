@@ -38,7 +38,7 @@ jobs:
         run: npm install
 
       - name: Generar cliente Prisma
-        run: npm run prisma:generate
+        run: npx prisma generate
 
       - name: Ejecutar migraciones y seed (deploy)
         run: npm run postdeploy
@@ -47,9 +47,6 @@ jobs:
 
       - name: Ejecutar build
         run: npm run build
-
-      - name: Iniciar servidor (start)
-        run: npm start
 
       - name: Ejecutar tests
         run: npm test
