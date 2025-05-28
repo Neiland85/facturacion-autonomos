@@ -44,6 +44,13 @@ jobs:
         run: npm run postdeploy
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          SEED_USER_PASSWORD: ${{ secrets.SEED_USER_PASSWORD }}
+
+      - name: Seed database
+        run: npx prisma db seed
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          SEED_USER_PASSWORD: ${{ secrets.SEED_USER_PASSWORD }}
 
       - name: Ejecutar build
         run: npm run build
