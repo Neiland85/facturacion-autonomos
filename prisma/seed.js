@@ -8,7 +8,7 @@ async function main() {
     data: {
       nombre: 'Usuario Demo',
       email: 'demo@example.com',
-      password: 'demo123', // Solo para pruebas, nunca en producción
+      password: 'demo123', // En un entorno real, asegúrate de hashear la contraseña
       clientes: {
         create: [
           {
