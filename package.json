@@ -9,7 +9,8 @@
     "prisma:migrate": "prisma migrate dev",
     "prisma:studio": "prisma studio",
     "postdeploy": "prisma migrate deploy && prisma db seed",
-    "build": "echo 'No build step required for Express backend'"
+    "build": "echo 'No build step required for Express backend'",
+    "workflow:dev": "npm run prisma:generate && npm run prisma:migrate && npm --prefix frontend run dev & npm run dev"
   },
   "keywords": [],
   "author": "",
