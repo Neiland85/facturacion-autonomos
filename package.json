@@ -7,7 +7,9 @@
     "start": "node src/index.js",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
-    "prisma:studio": "prisma studio"
+    "prisma:studio": "prisma studio",
+    "postdeploy": "prisma migrate deploy && prisma db seed",
+    "build": "echo 'No build step required for Express backend'"
   },
   "keywords": [],
   "author": "",
@@ -26,5 +28,8 @@
     "prisma": "^6.8.2",
     "puppeteer": "^24.9.0",
     "sqlite3": "^5.1.7"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
   }
 }
