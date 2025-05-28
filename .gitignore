@@ -1,0 +1,25 @@
+# node modules
+node_modules/
+
+# Entorno y variables sensibles
+.env
+.env.*
+
+# Salida de Prisma y base de datos local
+/generated/
+prisma/dev.db
+prisma/dev.sqlite
+prisma/*.db
+prisma/*.sqlite
+
+# Salida de logs y depuración
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Salida de Vercel
+.vercel/
+
+# Salida de VSCode
+.vscode/
+.vercel

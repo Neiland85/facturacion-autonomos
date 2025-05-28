@@ -1,0 +1,30 @@
+{
+  "name": "facturacion-autonomos",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:studio": "prisma studio"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "eslint": "^9.27.0",
+    "nodemon": "^3.1.10"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.8.2",
+    "date-fns": "^4.1.0",
+    "express": "^5.1.0",
+    "joi": "^17.13.3",
+    "pdfkit": "^0.17.1",
+    "prisma": "^6.8.2",
+    "puppeteer": "^24.9.0",
+    "sqlite3": "^5.1.7"
+  }
+}
