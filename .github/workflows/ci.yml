@@ -40,18 +40,13 @@ jobs:
       - name: Generar cliente Prisma
         run: npm run prisma:generate
 
-      - name: Ejecutar migraciones (dev)
-        run: npm run prisma:migrate
+      - name: Ejecutar migraciones y seed (deploy)
+        run: npm run postdeploy
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
       - name: Ejecutar build
         run: npm run build
-
-      - name: Ejecutar postdeploy (deploy migraciones y seed)
-        run: npm run postdeploy
-        env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
       - name: Iniciar servidor (start)
         run: npm start
