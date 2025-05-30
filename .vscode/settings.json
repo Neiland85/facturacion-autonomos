@@ -31,9 +31,9 @@
     "usando",
     "usuario"
   ],
-  "editor.codeActions.triggerOnFocusChange": true,
   "inlineChat.lineEmptyHint": true,
   "inlineChat.enableV2": true,
   "inlineChat.finishOnType": true,
-  "inlineChat.hideOnRequest": true
+  "inlineChat.hideOnRequest": true,
+  "editor.codeActions.triggerOnFocusChange": false
 }
