@@ -4,7 +4,17 @@
   "eslint.enable": true,
   "eslint.validate": ["javascript", "typescript"],
   "prisma.format.enable": true,
-  "cSpell.words": ["autonomos", "facturacion", "middleware", "Permite", "prisma"],
+  "cSpell.words": [
+    "autonomos",
+    "Dsonar",
+    "facturacion",
+    "middleware",
+    "neiland",
+    "Permite",
+    "prisma",
+    "sonarcloud",
+    "VERCEL"
+  ],
   "typescript.tsdk": "node_modules/typescript/lib",
   "eslint.alwaysShowStatus": true
 }

@@ -70,9 +70,9 @@ jobs:
           path: ./coverage
 
       - name: Snyk Security Scan
-        uses: snyk/actions/node@v3
+        uses: snyk/actions/node@v4
         with:
-          command: test
+          args: monitor --all-projects
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
@@ -80,7 +80,6 @@ jobs:
     needs: build-and-test
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -108,7 +107,8 @@ jobs:
         uses: SonarSource/sonarcloud-github-action@v2
         with:
           projectBaseDir: .
+          args: >
+            -Dsonar.projectKey=neiland85_facturacion-autonomos
+            -Dsonar.organization=neiland85
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_PROJECT_KEY: neiland85_facturacion-autonomos
-          SONAR_ORG: neiland85
