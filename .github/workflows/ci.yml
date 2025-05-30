@@ -70,7 +70,7 @@ jobs:
           path: ./coverage
 
       - name: Snyk Security Scan
-        uses: snyk/actions/node@v4
+        uses: snyk/actions/node@v3.6.0
         with:
           args: monitor --all-projects
         env:
@@ -108,6 +108,7 @@ jobs:
         with:
           projectBaseDir: .
           args: >
+            -X
             -Dsonar.projectKey=neiland85_facturacion-autonomos
             -Dsonar.organization=neiland85
         env:
