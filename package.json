@@ -56,7 +56,6 @@
     "fb-watchman": "^2.0.2",
     "fill-range": "^7.1.1",
     "fs.realpath": "^1.0.0",
-    "fsevents": "^2.3.3",
     "function-bind": "^1.1.2",
     "gensync": "^1.0.0-beta.2",
     "get-caller-file": "^2.0.5",
@@ -195,14 +194,14 @@
   },
   "scripts": {
     "dev": "nodemon src/index.js",
-  "start": "node src/index.js",
-  "prisma:generate": "prisma generate",
-  "prisma:migrate": "prisma migrate dev",
-  "prisma:studio": "prisma studio",
-  "postdeploy": "prisma migrate deploy && prisma db seed",
-  "test": "jest",
-  "test:e2e": "jest --config jest.config.js",
-  "lint": "eslint ."
+    "start": "node src/index.js",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:studio": "prisma studio",
+    "postdeploy": "prisma migrate deploy && prisma db seed",
+    "test": "jest",
+    "test:e2e": "jest --config jest.config.js",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -215,5 +214,8 @@
   "bugs": {
     "url": "https://github.com/Neiland85/facturacion-autonomos/issues"
   },
-  "homepage": "https://github.com/Neiland85/facturacion-autonomos#readme"
+  "homepage": "https://github.com/Neiland85/facturacion-autonomos#readme",
+  "optionalDependencies": {
+    "fsevents": "^2.3.3"
+  }
 }
