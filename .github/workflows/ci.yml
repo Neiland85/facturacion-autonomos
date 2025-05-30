@@ -110,6 +110,6 @@ jobs:
           args: >
             -X
             -Dsonar.projectKey=neiland85_facturacion-autonomos
-            -Dsonar.organization=neiland85
+            -Dsonar.organization=neil-munoz-lago
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
