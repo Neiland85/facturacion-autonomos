@@ -109,7 +109,6 @@ jobs:
           projectBaseDir: .
           args: >
             -X
-            -Dsonar.projectKey=neiland85_facturacion-autonomos
-            -Dsonar.organization=neil-munoz-lago
+            -Dsonar.organization=neil-muñoz-lago
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
