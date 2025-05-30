@@ -41,7 +41,7 @@ jobs:
       - name: Run tests
         run: npm test
         env:
-          NODE_OPTIONS: --experimental-vm-modules # Required for Jest with ESM
+          NODE_OPTIONS: --experimental-vm-modules # Necesario para Jest con ESM
 
   security:
     needs: build-and-test
