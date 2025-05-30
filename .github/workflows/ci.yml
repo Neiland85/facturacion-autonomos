@@ -70,7 +70,7 @@ jobs:
           path: ./coverage
 
       - name: Snyk Security Scan
-        uses: snyk/actions/node@v3.6.0
+        uses: snyk/actions/node@v1
         with:
           args: monitor --all-projects
         env:
