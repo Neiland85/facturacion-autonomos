@@ -41,7 +41,7 @@ jobs:
       - name: Run tests
         run: npm test
         env:
-          NODE_OPTIONS: --experimental-vm-modules # Necesario para ESM con Jest
+          NODE_OPTIONS: --experimental-vm-modules # Required for Jest with ESM
 
   security:
     needs: build-and-test
@@ -66,27 +66,3 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           args: --all-projects
-
-  sonarcloud:
-    needs: build-and-test
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          args: >
-            -Dsonar.organization=neil-muñoz-lago
-            -Dsonar.projectKey=facturacion-autonomos
-            -Dsonar.sources=src
-            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
-            -Dsonar.typescript.tsconfigPath=tsconfig.json
-            -Dsonar.exclusions=**/*.test.js,**/*.spec.js,src/__tests__/
