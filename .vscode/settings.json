@@ -1,0 +1,10 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "eslint.enable": true,
+  "eslint.validate": ["javascript", "typescript"],
+  "prisma.format.enable": true,
+  "cSpell.words": ["autonomos", "facturacion", "middleware", "Permite", "prisma"],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "eslint.alwaysShowStatus": true
+}

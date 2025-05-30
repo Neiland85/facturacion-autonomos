@@ -2,64 +2,86 @@
 const prisma = require('../prisma/client');
 const Joi = require('joi');
 
-// Esquema de validación para usuario
 const usuarioSchema = Joi.object({
-  nombre: Joi.string().required(),
+  nombre: Joi.string().min(2).max(100).required(),
   email: Joi.string().email().required(),
-  password: Joi.string().min(6).required()
+  password: Joi.string().min(6).max(128).required(),
+  rol: Joi.string().valid('admin', 'user').default('user'),
 });
 
-exports.getAll = async (req, res) => {
+// Middleware de validación
+function validateUsuario(req, res, next) {
+  const { error } = usuarioSchema.validate(req.body);
+  if (error) {
+    return res.status(400).json({ error: error.details[0].message });
+  }
+  next();
+}
+
+// Obtener todos los usuarios
+exports.getAll = async (req, res, next) => {
   try {
     const usuarios = await prisma.usuario.findMany();
     res.json(usuarios);
   } catch (error) {
-    res.status(500).json({ error: 'Error al obtener usuarios' });
+    next(error);
   }
 };
 
-exports.getById = async (req, res) => {
+// Obtener un usuario por ID
+exports.getById = async (req, res, next) => {
   try {
     const usuario = await prisma.usuario.findUnique({
-      where: { id: Number(req.params.id) }
+      where: { id: Number(req.params.id) },
     });
-    if (!usuario) return res.status(404).json({ error: 'Usuario no encontrado' });
+    if (!usuario) {
+      return res.status(404).json({ error: 'Usuario no encontrado' });
+    }
     res.json(usuario);
   } catch (error) {
-    res.status(500).json({ error: 'Error al obtener usuario' });
+    next(error);
   }
 };
 
-exports.create = async (req, res) => {
-  const { error } = usuarioSchema.validate(req.body);
-  if (error) return res.status(400).json({ error: error.details[0].message });
+// Crear un nuevo usuario
+exports.create = async (req, res, next) => {
   try {
-    const usuario = await prisma.usuario.create({ data: req.body });
-    res.status(201).json(usuario);
-  } catch (err) {
-    res.status(500).json({ error: 'Error al crear usuario' });
-  }
-};
-
-exports.update = async (req, res) => {
-  const { error } = usuarioSchema.validate(req.body);
-  if (error) return res.status(400).json({ error: error.details[0].message });
-  try {
-    const usuario = await prisma.usuario.update({
-      where: { id: Number(req.params.id) },
-      data: req.body
+    const nuevoUsuario = await prisma.usuario.create({
+      data: req.body,
     });
-    res.json(usuario);
-  } catch (err) {
-    res.status(500).json({ error: 'Error al actualizar usuario' });
+    res.status(201).json(nuevoUsuario);
+  } catch (error) {
+    next(error);
   }
 };
 
-exports.delete = async (req, res) => {
+// Actualizar un usuario
+exports.update = async (req, res, next) => {
   try {
-    await prisma.usuario.delete({ where: { id: Number(req.params.id) } });
-    res.json({ message: 'Usuario eliminado' });
-  } catch (err) {
-    res.status(500).json({ error: 'Error al eliminar usuario' });
+    const usuarioActualizado = await prisma.usuario.update({
+      where: { id: Number(req.params.id) },
+      data: req.body,
+    });
+    res.json(usuarioActualizado);
+  } catch (error) {
+    if (error.code === 'P2025') {
+      return res.status(404).json({ error: 'Usuario no encontrado' });
+    }
+    next(error);
+  }
+};
+
+// Eliminar un usuario
+exports.delete = async (req, res, next) => {
+  try {
+    await prisma.usuario.delete({
+      where: { id: Number(req.params.id) },
+    });
+    res.status(204).send();
+  } catch (error) {
+    if (error.code === 'P2025') {
+      return res.status(404).json({ error: 'Usuario no encontrado' });
+    }
+    next(error);
   }
 };

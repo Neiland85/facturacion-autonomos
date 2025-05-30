@@ -4,6 +4,7 @@ node_modules/
 # Entorno y variables sensibles
 .env
 .env.*
+!.env.example
 
 # Salida de Prisma y base de datos local
 /generated/
@@ -16,11 +17,27 @@ prisma/*.sqlite
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
 # Salida de Vercel
 .vercel/
 
-# Salida de VSCode
+# Salida de VSCode (solo settings locales, no tasks ni launch)
 .vscode/
-.vercel
-.env
+!.vscode/settings.json
+
+# Salida de tests y cobertura
+coverage/
+dist/
+build/
+
+# Archivos del sistema y temporales
+.DS_Store
+Thumbs.db
+
+# Otros
+*.log
+*.tgz
+.idea/
+*.swp
+*.swo

@@ -2,11 +2,160 @@
 const express = require('express');
 const router = express.Router();
 const clienteController = require('../controllers/clienteController');
+const Joi = require('joi');
+const validate = require('../middlewares/validate');
 
-router.get('/', clienteController.getAll);
-router.get('/:id', clienteController.getById);
-router.post('/', clienteController.create);
-router.put('/:id', clienteController.update);
-router.delete('/:id', clienteController.delete);
+/**
+ * @swagger
+ * tags:
+ *   name: Clientes
+ *   description: Gestión de clientes
+ */
+
+/**
+ * @swagger
+ * /clientes:
+ *   get:
+ *     summary: Obtiene todos los clientes
+ *     tags: [Clientes]
+ *     responses:
+ *       200:
+ *         description: Lista de clientes
+ *   post:
+ *     summary: Crea un nuevo cliente
+ *     tags: [Clientes]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               nombre:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *               telefono:
+ *                 type: string
+ *               direccion:
+ *                 type: string
+ *     responses:
+ *       201:
+ *         description: Cliente creado
+ */
+
+/**
+ * @swagger
+ * /clientes/{id}:
+ *   get:
+ *     summary: Obtiene un cliente por ID
+ *     tags: [Clientes]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: integer
+ *         required: true
+ *         description: ID del cliente
+ *     responses:
+ *       200:
+ *         description: Cliente encontrado
+ *       404:
+ *         description: Cliente no encontrado
+ *   put:
+ *     summary: Actualiza un cliente por ID
+ *     tags: [Clientes]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: integer
+ *         required: true
+ *         description: ID del cliente
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               nombre:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *               telefono:
+ *                 type: string
+ *               direccion:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Cliente actualizado
+ *       404:
+ *         description: Cliente no encontrado
+ *   delete:
+ *     summary: Elimina un cliente por ID
+ *     tags: [Clientes]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: integer
+ *         required: true
+ *         description: ID del cliente
+ *     responses:
+ *       204:
+ *         description: Cliente eliminado
+ *       404:
+ *         description: Cliente no encontrado
+ */
+
+// Esquema de validación para cliente
+const clienteSchema = Joi.object({
+  nombre: Joi.string().min(2).max(100).required(),
+  email: Joi.string().email().required(),
+  telefono: Joi.string().optional(),
+  direccion: Joi.string().optional(),
+});
+
+// Rutas de cliente
+router.get('/', async (req, res, next) => {
+  try {
+    await clienteController.getAll(req, res);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.get('/:id', async (req, res, next) => {
+  try {
+    await clienteController.getById(req, res);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.post('/', validate({ body: clienteSchema }), async (req, res, next) => {
+  try {
+    await clienteController.create(req, res);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.put('/:id', validate({ body: clienteSchema }), async (req, res, next) => {
+  try {
+    await clienteController.update(req, res);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.delete('/:id', async (req, res, next) => {
+  try {
+    await clienteController.delete(req, res);
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = router;
