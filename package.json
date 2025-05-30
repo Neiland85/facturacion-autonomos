@@ -18,7 +18,7 @@
     "format": "prettier --write .",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "test:e2e": "jest src/__tests__/*.e2e.test.js",
+    "test:e2e": "jest --config jest.config.ts",
     "release": "semantic-release",
     "seed": "prisma db seed"
   },
@@ -56,6 +56,7 @@
     "prettier": "^3.2.5",
     "semantic-release": "^23.0.0",
     "supertest": "^7.1.1",
+    "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   },
   "prisma": {
@@ -66,13 +67,5 @@
       "eslint --fix",
       "prettier --write"
     ]
-  },
-  "jest": {
-    "transform": {},
-    "extensionsToTreatAsEsm": [
-      ".ts",
-      ".js"
-    ],
-    "testEnvironment": "node"
   }
 }

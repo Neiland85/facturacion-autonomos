@@ -2,10 +2,19 @@
 const request = require('supertest');
 const app = require('../index');
 
+// Función para obtener clientes
+async function getClientes() {
+  const res = await getClientes();
+  return res.body; // Devuelve directamente el cuerpo como un array
+
+  async function getClientes() {
+    return await request(app).get('/clientes');
+  }
+}
+
 describe('Clientes API E2E', () => {
   it('GET /clientes debe responder 200 y un array', async () => {
-    const res = await request(app).get('/clientes');
+    const res = await getClientes();
     expect(res.statusCode).toBe(200);
     expect(Array.isArray(res.body)).toBe(true);
   });
-});
