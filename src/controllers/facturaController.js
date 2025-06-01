@@ -17,6 +17,7 @@ exports.getAll = async (req, res) => {
     const facturas = await prisma.factura.findMany();
     res.json(facturas);
   } catch (error) {
+    console.error('Error al obtener facturas:', error);
     res.status(500).json({ error: 'Error al obtener facturas' });
   }
 };
@@ -29,6 +30,7 @@ exports.getById = async (req, res) => {
     if (!factura) return res.status(404).json({ error: 'Factura no encontrada' });
     res.json(factura);
   } catch (error) {
+    console.error('Error al obtener factura:', error); // Registrar el error
     res.status(500).json({ error: 'Error al obtener factura' });
   }
 };
@@ -54,6 +56,9 @@ exports.update = async (req, res) => {
     });
     res.json(factura);
   } catch (err) {
+    if (err.code === 'P2025') {
+      return res.status(404).json({ error: 'Factura no encontrada' });
+    }
     res.status(500).json({ error: 'Error al actualizar factura' });
   }
 };
@@ -62,7 +67,43 @@ exports.delete = async (req, res) => {
   try {
     await prisma.factura.delete({ where: { id: Number(req.params.id) } });
     res.json({ message: 'Factura eliminada' });
-  } catch (err) {
+  } catch (error) {
+    console.error('Error al eliminar factura:', error); // Usar la variable
     res.status(500).json({ error: 'Error al eliminar factura' });
   }
 };
+
+const { getAll } = require('../controllers/facturaController');
+
+jest.mock('../prisma/client');
+
+test('Debe devolver una lista de facturas', async () => {
+  prisma.factura.findMany.mockResolvedValue([{ id: 1, numero: 'F001' }]);
+  const req = {};
+  const res = {
+    json: jest.fn()
+  };
+
+  await getAll(req, res);
+  expect(res.json).toHaveBeenCalledWith([{ id: 1, numero: 'F001' }]);
+});
+
+const { getById } = require('../controllers/facturaController');
+const prisma = require('../prisma/client');
+
+jest.mock('../prisma/client', () => ({
+  factura: {
+    findUnique: jest.fn()
+  }
+}));
+
+test('Debe devolver una factura por ID', async () => {
+  prisma.factura.findUnique.mockResolvedValue({ id: 1, numero: 'F001' });
+  const req = { params: { id: '1' } };
+  const res = {
+    json: jest.fn()
+  };
+
+  await getById(req, res);
+  expect(res.json).toHaveBeenCalledWith({ id: 1, numero: 'F001' });
+});
