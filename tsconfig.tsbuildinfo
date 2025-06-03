@@ -1,0 +1,1 @@
+{"root":["./invoice-service/src/controllers/invoicecontroller.ts","./invoice-service/src/models/invoice.ts","./invoice-service/src/services/invoiceservice.ts","./invoice-service/tests/invoiceservice.test.ts"],"version":"5.7.2"}

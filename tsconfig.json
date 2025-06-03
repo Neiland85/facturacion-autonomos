@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "rootDir": "./invoice-service",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "allowJs": true, // Permite archivos JS en el proyecto
+    "checkJs": false, // No verifica tipos en archivos JS
+    "forceConsistentCasingInFileNames": true // Asegura consistencia en nombres de archivo
+  },
+  "include": [
+    "invoice-service/src/**/*",
+    "invoice-service/tests/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
