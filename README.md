@@ -16,11 +16,6 @@
   Node.js · Express · Prisma · Postgres · PDFKit · Puppeteer · Joi · date-fns
 </p>
 
----
-
-📄 Licencia
-Este proyecto está licenciado bajo los términos de la licencia Apache 2.0. Consulta el archivo LICENSE para más detalles.
-
 # Facturación para Autónomos
 
 ![Typing Animation](https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&size=24&duration=3000&color=00F7FF&center=true&vCenter=true&width=500&lines=Sistema+de+Facturación+para+Autónomos;Optimizado+para+Node.js+y+Prisma)
@@ -36,16 +31,9 @@ Este proyecto es un sistema de facturación diseñado para autónomos. Permite g
 - **Generación de PDFs**: Integración con PDFKit.
 - **Sembrado de datos**: Scripts automáticos con Prisma.
 
-## Instalación
 
-1. Clona el repositorio:
-   ```bash
-   git clone https://github.com/Neiland85/facturacion-autonomos.git
-
-   Instala las dependencias:
-install
 Configura las variables de entorno:
-"
+
 Scripts disponibles
 npm run dev: Ejecuta el servidor en modo desarrollo.
 npm run start: Inicia el servidor en modo producción.
@@ -53,7 +41,8 @@ npm run test: Ejecuta pruebas unitarias.
 npm run test:e2e: Ejecuta pruebas E2E.
 npm run lint: Verifica la calidad del código.
 npx prisma db seed: Siembra la base de datos.
-Despliegue
+
+## Despliegue
 El proyecto está configurado para ser desplegado en Vercel. Asegúrate de configurar las variables de entorno necesarias antes del despliegue.
 ## 🚀 Características principales
 
@@ -70,7 +59,6 @@ El proyecto está configurado para ser desplegado en Vercel. Asegúrate de confi
 
 ## 📦 Estructura del proyecto
 
-```plaintext
 src/
   index.js
   controllers/
@@ -98,9 +86,11 @@ npm run prisma:studio — Abre Prisma Studio para explorar la base de datos
 ## 🌐 Despliegue en Vercel
 
 Configura la variable de entorno DATABASE_URL en el dashboard de Vercel.
+
 Despliega con:
 El backend quedará disponible en la URL proporcionada por Vercel.
 🗂️ Modelo de datos principal
+
 🧩 Extensiones recomendadas para VSCode
 Prisma
 ESLint
@@ -108,4 +98,6 @@ Prettier
 
 ## 📄 Licencia
 
-Este proyecto está licenciado bajo los términos de la licencia Apache 2.0. Consulta el archivo [LICENSE](./LICENSE) para más detalles.
+Este proyecto está licenciado bajo los términos de la licencia Apache 2.0. Consulta el archivo (./LICENSE) para más detalles. 
+
+## Autor: Neil Muñoz Lago Copiwright 2025
