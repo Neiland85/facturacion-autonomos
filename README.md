@@ -100,4 +100,4 @@ Prettier
 
 Este proyecto está licenciado bajo los términos de la licencia Apache 2.0. Consulta el archivo (./LICENSE) para más detalles. 
 
-## Autor: Neil Muñoz Lago Copiwright 2025
+## Autor: Neil Muñoz Lago Copyright 2025 Neiland85
