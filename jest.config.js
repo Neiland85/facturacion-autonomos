@@ -1,4 +1,5 @@
 module.exports = {
+<<<<<<< Updated upstream
   // Directorio raíz para las pruebas
   roots: ['<rootDir>/src'],
 
@@ -21,4 +22,13 @@ module.exports = {
 
   // Transformaciones (eliminadas porque no se usa TypeScript)
   transform: {}
+=======
+  preset: 'ts-jest',
+  testEnvironment: 'node',
+  transform: {
+    '^.+\\.ts$': 'ts-jest',
+  },
+  moduleFileExtensions: ['ts', 'js'],
+  testMatch: ['**/__tests__/**/*.test.ts'],
+>>>>>>> Stashed changes
 };

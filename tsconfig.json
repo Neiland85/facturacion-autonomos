@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module": "ESNext", // Genera módulos ES
+    "target": "ESNext",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
