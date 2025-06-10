@@ -2,14 +2,17 @@
 const prisma = require('../prisma/client');
 const Joi = require('joi');
 
-// Esquema de validación para factura
+// Esquema de validación mejorado para factura
 const facturaSchema = Joi.object({
-  numero: Joi.string().required(),
-  fecha: Joi.date().required(),
-  total: Joi.number().required(),
-  usuarioId: Joi.number().integer().required(),
-  clienteId: Joi.number().integer().required(),
-  pdfUrl: Joi.string().uri().allow(null, '')
+  numero: Joi.string().alphanum().min(3).max(20).required(),
+  fecha: Joi.date().iso().required(),
+  total: Joi.number().min(0).max(1000000).required(),
+  usuarioId: Joi.number().integer().positive().required(),
+  clienteId: Joi.number().integer().positive().required(),
+  pdfUrl: Joi.string().uri().allow(null, ''),
+  concepto: Joi.string().min(3).max(200).optional(),
+  estado: Joi.string().valid('pendiente', 'pagada', 'anulada').optional(),
+  notas: Joi.string().max(500).optional()
 });
 
 exports.getAll = async (req, res) => {

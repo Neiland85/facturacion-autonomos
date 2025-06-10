@@ -1,0 +1,180 @@
+{
+  "nodes": {
+    "facturacion-autonomos": {
+      "name": "facturacion-autonomos",
+      "type": "lib",
+      "data": {
+        "root": ".",
+        "name": "facturacion-autonomos",
+        "tags": [
+          "npm:public"
+        ],
+        "metadata": {
+          "targetGroups": {
+            "NPM Scripts": [
+              "start",
+              "dev",
+              "build",
+              "lint",
+              "test",
+              "test:e2e",
+              "prisma:generate",
+              "prisma:migrate",
+              "prisma:studio",
+              "prisma:seed",
+              "postdeploy"
+            ]
+          },
+          "description": "API para facturación de autónomos",
+          "js": {
+            "packageName": "facturacion-autonomos",
+            "packageMain": "dist/index.js",
+            "isInPackageManagerWorkspaces": true
+          }
+        },
+        "targets": {
+          "start": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "start"
+            },
+            "metadata": {
+              "scriptContent": "node dist/index.js",
+              "runCommand": "npm run start"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "dev": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "dev"
+            },
+            "metadata": {
+              "scriptContent": "nodemon --watch src --ext ts,json --exec ts-node src/index.ts",
+              "runCommand": "npm run dev"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "build": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "build"
+            },
+            "metadata": {
+              "scriptContent": "tsc --build",
+              "runCommand": "npm run build"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "lint": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "lint"
+            },
+            "metadata": {
+              "scriptContent": "eslint . --ext .ts,.js",
+              "runCommand": "npm run lint"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "test"
+            },
+            "metadata": {
+              "scriptContent": "jest",
+              "runCommand": "npm run test"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "test:e2e": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "test:e2e"
+            },
+            "metadata": {
+              "scriptContent": "jest --config jest.config.js",
+              "runCommand": "npm run test:e2e"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "prisma:generate": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "prisma:generate"
+            },
+            "metadata": {
+              "scriptContent": "prisma generate",
+              "runCommand": "npm run prisma:generate"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "prisma:migrate": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "prisma:migrate"
+            },
+            "metadata": {
+              "scriptContent": "prisma migrate dev",
+              "runCommand": "npm run prisma:migrate"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "prisma:studio": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "prisma:studio"
+            },
+            "metadata": {
+              "scriptContent": "prisma studio",
+              "runCommand": "npm run prisma:studio"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "prisma:seed": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "prisma:seed"
+            },
+            "metadata": {
+              "scriptContent": "ts-node prisma/seed.ts",
+              "runCommand": "npm run prisma:seed"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "postdeploy": {
+            "executor": "nx:run-script",
+            "options": {
+              "script": "postdeploy"
+            },
+            "metadata": {
+              "scriptContent": "npm run build && prisma migrate deploy && npm run prisma:seed",
+              "runCommand": "npm run postdeploy"
+            },
+            "configurations": {},
+            "parallelism": true
+          }
+        },
+        "implicitDependencies": []
+      }
+    }
+  },
+  "externalNodes": {},
+  "dependencies": {
+    "facturacion-autonomos": []
+  },
+  "version": "6.0",
+  "errors": [],
+  "computedAt": 1748988015020
+}

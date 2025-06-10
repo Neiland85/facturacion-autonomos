@@ -1,0 +1,313 @@
+{
+  "version": "6.0",
+  "nxVersion": "21.1.2",
+  "pathMappings": {},
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "projectFileMap": {
+      "facturacion-autonomos": [
+        {
+          "file": ".eslintrc.js",
+          "hash": "9921663616756293269"
+        },
+        {
+          "file": ".github/workflows/ci.yml",
+          "hash": "18036815456328305573"
+        },
+        {
+          "file": ".gitignore",
+          "hash": "15556858353316736662"
+        },
+        {
+          "file": "LICENSE",
+          "hash": "12649885980860800067"
+        },
+        {
+          "file": "README.md",
+          "hash": "12964443023139035627"
+        },
+        {
+          "file": "coverage/clover.xml",
+          "hash": "3142507195611099109"
+        },
+        {
+          "file": "coverage/coverage-final.json",
+          "hash": "15753941481085060538"
+        },
+        {
+          "file": "coverage/lcov-report/base.css",
+          "hash": "6204767174569381253"
+        },
+        {
+          "file": "coverage/lcov-report/block-navigation.js",
+          "hash": "1801078621803424330"
+        },
+        {
+          "file": "coverage/lcov-report/favicon.png",
+          "hash": "13402560043085226048"
+        },
+        {
+          "file": "coverage/lcov-report/index.html",
+          "hash": "8110108317807482205"
+        },
+        {
+          "file": "coverage/lcov-report/prettify.css",
+          "hash": "8163588510556258587"
+        },
+        {
+          "file": "coverage/lcov-report/prettify.js",
+          "hash": "15884788582061322779"
+        },
+        {
+          "file": "coverage/lcov-report/sort-arrow-sprite.png",
+          "hash": "254831142482329146"
+        },
+        {
+          "file": "coverage/lcov-report/sorter.js",
+          "hash": "17053119163225536857"
+        },
+        {
+          "file": "coverage/lcov.info",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "dist/src/__tests__/example.test.js",
+          "hash": "16754745389425799580"
+        },
+        {
+          "file": "dist/src/controllers/ClienteController.js",
+          "hash": "3367033653972790086"
+        },
+        {
+          "file": "dist/src/controllers/FirmaController.js",
+          "hash": "9697175292302737353"
+        },
+        {
+          "file": "dist/src/controllers/InvoiceController.js",
+          "hash": "9409750309869343628"
+        },
+        {
+          "file": "dist/src/controllers/UsuarioController.js",
+          "hash": "16416858222347946284"
+        },
+        {
+          "file": "dist/src/controllers/facturaController.js",
+          "hash": "3257024747490600604"
+        },
+        {
+          "file": "dist/src/index.js",
+          "hash": "13172517829006538027"
+        },
+        {
+          "file": "dist/src/models/Cliente.js",
+          "hash": "10533815908077531553"
+        },
+        {
+          "file": "dist/src/models/Firma.js",
+          "hash": "10533815908077531553"
+        },
+        {
+          "file": "dist/src/models/Invoice.js",
+          "hash": "10533815908077531553"
+        },
+        {
+          "file": "dist/src/models/Usuario.js",
+          "hash": "17897459618851824741"
+        },
+        {
+          "file": "dist/src/prisma/client.js",
+          "hash": "3916513569919523090"
+        },
+        {
+          "file": "dist/src/routes/cliente.js",
+          "hash": "16470772069271159491"
+        },
+        {
+          "file": "dist/src/routes/factura.js",
+          "hash": "1339097392117796117"
+        },
+        {
+          "file": "dist/src/routes/firma.js",
+          "hash": "10193043908249944548"
+        },
+        {
+          "file": "dist/src/routes/usuario.js",
+          "hash": "14087143226826481702"
+        },
+        {
+          "file": "dist/src/services/ClienteService.js",
+          "hash": "10228699413104335747"
+        },
+        {
+          "file": "dist/src/services/FirmaService.js",
+          "hash": "3972935777879973675"
+        },
+        {
+          "file": "dist/src/services/InvoiceService.js",
+          "hash": "13272644966351311886"
+        },
+        {
+          "file": "dist/src/services/UsuarioService.js",
+          "hash": "10596687695141771908"
+        },
+        {
+          "file": "dist/tsconfig.tsbuildinfo",
+          "hash": "12774280841502581533"
+        },
+        {
+          "file": "eslint.config.js",
+          "hash": "13198662551394567525"
+        },
+        {
+          "file": "facturacion-autonomos@1.0.0",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "invoice-service/src/controllers/ClienteController.ts",
+          "hash": "5227644604553917598"
+        },
+        {
+          "file": "invoice-service/src/controllers/FirmaController.ts",
+          "hash": "7996105181680102725"
+        },
+        {
+          "file": "invoice-service/src/controllers/InvoiceController.ts",
+          "hash": "18098144930158872318"
+        },
+        {
+          "file": "invoice-service/src/controllers/UsuarioController.ts",
+          "hash": "13312870439260024004"
+        },
+        {
+          "file": "invoice-service/src/controllers/facturaController.js",
+          "hash": "16213571117426992985"
+        },
+        {
+          "file": "invoice-service/src/index.js",
+          "hash": "705954858262559840"
+        },
+        {
+          "file": "invoice-service/src/models/Cliente.ts",
+          "hash": "7928686935573998176"
+        },
+        {
+          "file": "invoice-service/src/models/Firma.ts",
+          "hash": "10183443584404922495"
+        },
+        {
+          "file": "invoice-service/src/models/Invoice.ts",
+          "hash": "12764293050908973789"
+        },
+        {
+          "file": "invoice-service/src/models/Usuario.ts",
+          "hash": "3947111769968202972"
+        },
+        {
+          "file": "invoice-service/src/routes/cliente.ts",
+          "hash": "4993567703078478757"
+        },
+        {
+          "file": "invoice-service/src/routes/factura.js",
+          "hash": "6153651772802610278"
+        },
+        {
+          "file": "invoice-service/src/routes/firma.ts",
+          "hash": "12441387191885771110"
+        },
+        {
+          "file": "invoice-service/src/routes/usuario.ts",
+          "hash": "3709851590517777655"
+        },
+        {
+          "file": "invoice-service/src/services/ClienteService.ts",
+          "hash": "10036301261352930662"
+        },
+        {
+          "file": "invoice-service/src/services/FirmaService.ts",
+          "hash": "10899464502630062146"
+        },
+        {
+          "file": "invoice-service/src/services/InvoiceService.ts",
+          "hash": "2702520133996615332"
+        },
+        {
+          "file": "invoice-service/src/services/UsuarioService.ts",
+          "hash": "41814265840544938"
+        },
+        {
+          "file": "jest.config.js",
+          "hash": "6497752628993989652"
+        },
+        {
+          "file": "nx.json",
+          "hash": "2119182665606583814"
+        },
+        {
+          "file": "package.json",
+          "hash": "18290640368043815494"
+        },
+        {
+          "file": "prisma/migrations/20250528024832_init/migration.sql",
+          "hash": "16430808923376219612"
+        },
+        {
+          "file": "prisma/migrations/migration_lock.toml",
+          "hash": "872437952673290735"
+        },
+        {
+          "file": "prisma/schema.prisma",
+          "hash": "1612105557745926214"
+        },
+        {
+          "file": "prisma/seed.js",
+          "hash": "9605395095268327605"
+        },
+        {
+          "file": "shared/middlewares/validate.js",
+          "hash": "772871001126910967"
+        },
+        {
+          "file": "shared/prisma/client.js",
+          "hash": "15391074887205099627"
+        },
+        {
+          "file": "shared/utils/date.js",
+          "hash": "17776643816372950202"
+        },
+        {
+          "file": "shared/utils/pdf.js",
+          "hash": "18406890696894576940"
+        },
+        {
+          "file": "shared/utils/puppeteer.js",
+          "hash": "9868924355974910585"
+        },
+        {
+          "file": "src/__tests__/example.test.js",
+          "hash": "15276138397317689723"
+        },
+        {
+          "file": "src/controllers/facturaController.js",
+          "hash": "4028668877321999718"
+        },
+        {
+          "file": "src/controllers/usuarioController.js",
+          "hash": "7136189377572112933"
+        },
+        {
+          "file": "src/prisma/client.js",
+          "hash": "15328409013330246775"
+        },
+        {
+          "file": "tsconfig.json",
+          "hash": "11129383549981357892"
+        },
+        {
+          "file": "tsconfig.tsbuildinfo",
+          "hash": "1883511570580302093"
+        }
+      ]
+    },
+    "nonProjectFiles": []
+  }
+}

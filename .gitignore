@@ -1,26 +1,44 @@
-# node modules
+# Node modules
 node_modules/
 
 # Entorno y variables sensibles
 .env
 .env.*
 
-# Salida de Prisma y base de datos local
+# Prisma: salida generada y bases de datos locales
 /generated/
-prisma/dev.db
-prisma/dev.sqlite
 prisma/*.db
 prisma/*.sqlite
+prisma/dev.db
+prisma/dev.sqlite
 
-# Salida de logs y depuración
+# Prisma: migraciones y cliente generado (no ignores el schema principal)
+prisma/migrations/
+!prisma/schema.prisma
+
+# Salida de cobertura de tests
+coverage/
+*.lcov
+
+# Logs y depuración
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Salida de Vercel
+# Vercel
 .vercel/
 
-# Salida de VSCode
+# VSCode
 .vscode/
-.vercel
-.env
+
+# MacOS
+.DS_Store
+
+# Husky (solo incluye hooks específicos)
+.husky/*
+!.husky/pre-commit
+!.husky/commit-msg
+
+# Otros archivos temporales
+*.swp
+*.swo
