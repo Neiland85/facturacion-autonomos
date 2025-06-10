@@ -1,15 +1,14 @@
 // src/jobs/processFacturasJob.js
-const { Queue, Worker, QueueScheduler } = require('bullmq');
+const { Queue, Worker } = require('bullmq');
 const FacturaService = require('../services/FacturaService');
 const redisConfig = { connection: { host: 'localhost', port: 6379 } };
 
 const facturasQueue = new Queue('facturas-batch', redisConfig);
-const scheduler = new QueueScheduler('facturas-batch', redisConfig);
 
 // Worker: procesa las facturas pendientes en batch
-const worker = new Worker('facturas-batch', async job => {
+const worker = new Worker('facturas-batch', async () => {
   // Aquí tu lógica de procesamiento batch
-  const pendientes = await FacturaService.getPendientes(); // Implementa este método
+  const pendientes = await FacturaService.getPendientes(); // Implementa este método en FacturaService
   for (const factura of pendientes) {
     // Procesa cada factura (ejemplo: marcar como procesada, enviar, etc.)
     await FacturaService.procesarFactura(factura.id);

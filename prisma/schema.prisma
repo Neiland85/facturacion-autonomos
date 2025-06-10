@@ -5,6 +5,8 @@ datasource db {
 
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["interactiveTransactions"]
+  output   = "../src/prisma/client"
 }
 
 model Usuario {
@@ -40,3 +42,8 @@ model Factura {
   pdfUrl      String?
   createdAt   DateTime @default(now())
 }
+
+// En package.json o en schema.prisma:
+// "prisma": {
+//   "seed": "node prisma/seed.js"
+// }

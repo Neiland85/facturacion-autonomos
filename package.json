@@ -10,7 +10,7 @@
     "build": "tsc --build",
     "lint": "eslint .",
     "test": "jest",
-    "test:e2e": "jest --config jest.config.js",
+    "test:e2e": "npx playwright test",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "prisma:studio": "prisma studio",
@@ -60,5 +60,8 @@
   "homepage": "https://github.com/Neiland85/facturacion-autonomos#readme",
   "optionalDependencies": {
     "fsevents": "^2.3.3"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
   }
 }
