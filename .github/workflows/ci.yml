@@ -81,4 +81,9 @@ jobs:
       # Y finalmente los tests e2e si están configurados
       - name: Run E2E tests
         run: npm run test:e2e
+        develop
         continue-on-error: true  # Para permitir ver resultados incluso si fallan
+
+      - name: Start server
+        run: npm run start &
+        main
