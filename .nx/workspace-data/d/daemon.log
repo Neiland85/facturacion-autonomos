@@ -337,3 +337,19 @@
 [NX v21.1.2 Daemon Server] - 2025-06-03T22:00:14.602Z - [WATCHER]: Stopping the watcher for /Users/estudio/Projects/GitHub/NODE/facturacion-autonomos (sources)
 [NX v21.1.2 Daemon Server] - 2025-06-03T22:00:14.602Z - [WATCHER]: Stopping the watcher for /Users/estudio/Projects/GitHub/NODE/facturacion-autonomos (outputs)
 [NX v21.1.2 Daemon Server] - 2025-06-03T22:00:14.603Z - Server stopped because: "Request to shutdown"
+[NX v21.1.2 Daemon Server] - 2025-06-10T08:12:54.556Z - Started listening on: /var/folders/rx/4wv686nx3q36dk61cslkpg3h0000gn/T/7235f0cd8c5948146661/d.sock
+[NX v21.1.2 Daemon Server] - 2025-06-10T08:12:54.822Z - [WATCHER]: Subscribed to changes within: /Users/estudio/Projects/GitHub/NODE/facturacion-autonomos (native)
+[NX v21.1.2 Daemon Server] - 2025-06-10T08:12:54.826Z - Established a connection. Number of open connections: 1
+[NX v21.1.2 Daemon Server] - 2025-06-10T08:12:54.828Z - Established a connection. Number of open connections: 2
+[NX v21.1.2 Daemon Server] - 2025-06-10T08:12:54.832Z - Closed a connection. Number of open connections: 1
+[NX v21.1.2 Daemon Server] - 2025-06-10T08:12:54.834Z - [REQUEST]: Responding to the client. Shutdown initiated
+[NX v21.1.2 Daemon Server] - 2025-06-10T08:12:54.835Z - Done responding to the client Shutdown initiated
+[NX v21.1.2 Daemon Server] - 2025-06-10T08:12:54.836Z - Handled FORCE_SHUTDOWN. Handling time: 0. Response time: 1.
+[NX v21.1.2 Daemon Server] - 2025-06-10T08:12:54.837Z - Closed a connection. Number of open connections: 0
+[NX v21.1.2 Daemon Server] - 2025-06-10T08:12:54.932Z - [WATCHER]: Stopping the watcher for /Users/estudio/Projects/GitHub/NODE/facturacion-autonomos (sources)
+[NX v21.1.2 Daemon Server] - 2025-06-10T08:12:54.932Z - Time taken for 'loadSpecifiedNxPlugins' 1.9431480000000647ms
+[NX v21.1.2 Daemon Server] - 2025-06-10T08:12:54.933Z - [WATCHER]: Stopping the watcher for /Users/estudio/Projects/GitHub/NODE/facturacion-autonomos (outputs)
+[NX v21.1.2 Daemon Server] - 2025-06-10T08:12:54.933Z - Server stopped because: "Request to shutdown"
+The plugin worker is exiting as it was not connected to within 5 seconds.
+The plugin worker is exiting as it was not connected to within 5 seconds.
+The plugin worker is exiting as it was not connected to within 5 seconds.

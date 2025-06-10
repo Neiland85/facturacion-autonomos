@@ -70,16 +70,30 @@ exports.update = async (req, res) => {
 };
 
 // Método para eliminar una factura
+// Método para eliminar una factura
 exports.delete = async (req, res) => {
   try {
-    const result = await FacturaService.deleteFactura(req.params.id);
-    if (!result) return res.status(404).json({ error: 'Factura no encontrada' });
-    res.json({ message: 'Factura eliminada' });
-  } catch (err) {
-    if (err.code === 'P2025') {
+    const { id } = req.params;
+    
+    // Llamamos al servicio para eliminar la factura
+    const result = await FacturaService.deleteFactura(Number(id));
+    
+    // Verificamos si el servicio indica que la factura no fue encontrada (devuelve false)
+    if (result === false) {
       return res.status(404).json({ error: 'Factura no encontrada' });
     }
-    console.error('Error al eliminar factura:', err);
-    res.status(500).json({ error: 'Error al eliminar factura' });
+    
+    // Si la operación fue exitosa, devolvemos el mensaje esperado con estado 200 explícito
+    return res.status(200).json({ message: 'Factura eliminada' });
+    
+  } catch (error) {
+    // Si es un error de "no encontrado" (código P2025 de Prisma)
+    if (error.code === 'P2025') {
+      return res.status(404).json({ error: 'Factura no encontrada' });
+    }
+    
+    // Para cualquier otro error
+    console.error('Error al eliminar factura:', error);
+    return res.status(500).json({ error: 'Error al eliminar factura' });
   }
 };

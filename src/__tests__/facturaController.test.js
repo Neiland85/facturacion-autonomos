@@ -22,10 +22,10 @@ describe('facturaController', () => {
   });
 
   test('create - error de validación', async () => {
-    FacturaService.validate.mockReturnValue({ error: { details: [{ message: 'Error' }] } });
+    FacturaService.validate.mockReturnValue({ error: { details: [{ message: 'Error de validación' }] } });
     await facturaController.create(req, res);
     expect(res.status).toHaveBeenCalledWith(400);
-    expect(res.json).toHaveBeenCalledWith({ error: 'Error' });
+    expect(res.json).toHaveBeenCalledWith({ error: 'Error de validación' });
   });
 
   test('create - error inesperado', async () => {
@@ -118,14 +118,13 @@ describe('facturaController', () => {
     req.params.id = 123;
     FacturaService.deleteFactura.mockResolvedValue();
     await facturaController.delete(req, res);
+    expect(res.status).toHaveBeenCalledWith(200); // Verifica el código de estado 200
     expect(res.json).toHaveBeenCalledWith({ message: 'Factura eliminada' });
   });
 
   test('delete - factura no encontrada', async () => {
     req.params.id = 123;
-    const err = new Error();
-    err.code = 'P2025';
-    FacturaService.deleteFactura.mockRejectedValue(err);
+    FacturaService.deleteFactura.mockResolvedValue(false); // Aseguramos que devuelva false
     await facturaController.delete(req, res);
     expect(res.status).toHaveBeenCalledWith(404);
     expect(res.json).toHaveBeenCalledWith({ error: 'Factura no encontrada' });
