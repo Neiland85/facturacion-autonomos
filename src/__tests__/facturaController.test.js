@@ -1,4 +1,3 @@
-// src/__tests__/facturaController.test.js
 const FacturaService = require('../services/FacturaService');
 const facturaController = require('../controllers/facturaController');
 

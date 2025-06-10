@@ -74,15 +74,3 @@ exports.delete = async (req, res) => {
     res.status(500).json({ error: 'Error al eliminar factura' });
   }
 };
-
-// src/__tests__/facturaController.test.js
-const FacturaService = require('../services/FacturaService');
-const facturaController = require('../controllers/facturaController');
-
-jest.mock('../utils/redis', () => ({
-  get: jest.fn(),
-  set: jest.fn(),
-  del: jest.fn()
-}));
-
-// ...describe y todos los tests de facturas...

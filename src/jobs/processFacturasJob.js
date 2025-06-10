@@ -4,7 +4,7 @@ const FacturaService = require('../services/FacturaService');
 const redisConfig = { connection: { host: 'localhost', port: 6379 } };
 
 const facturasQueue = new Queue('facturas-batch', redisConfig);
-new QueueScheduler('facturas-batch', redisConfig);
+const scheduler = new QueueScheduler('facturas-batch', redisConfig);
 
 // Worker: procesa las facturas pendientes en batch
 const worker = new Worker('facturas-batch', async job => {
