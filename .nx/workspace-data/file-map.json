@@ -7,32 +7,60 @@
     "projectFileMap": {},
     "nonProjectFiles": [
       {
-        "file": ".DS_Store",
-        "hash": "16074219446294423626"
+        "file": ".devcontainer/ApiRESTful.json",
+        "hash": "430085883838974589"
+      },
+      {
+        "file": ".env.example",
+        "hash": "15177935898488710705"
+      },
+      {
+        "file": ".eslintignore",
+        "hash": "13005170028298098338"
       },
       {
         "file": ".eslintrc.js",
         "hash": "9921663616756293269"
       },
       {
-        "file": ".github/.DS_Store",
-        "hash": "14911118795349567347"
+        "file": ".github/instructions/nx.instructions.md",
+        "hash": "15436848478017958425"
       },
       {
         "file": ".github/workflows/ci.yml",
-        "hash": "5086907705585526766"
+        "hash": "5725864742105126950"
       },
       {
         "file": ".gitignore",
-        "hash": "15556858353316736662"
+        "hash": "7520002140594817932"
       },
       {
-        "file": ".nx/.DS_Store",
-        "hash": "11666714220210530821"
+        "file": ".hintrc",
+        "hash": "16883127263138195986"
       },
       {
         "file": ".rest",
-        "hash": "1191674975353100758"
+        "hash": "12583800455512673690"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "8975596849107651118"
+      },
+      {
+        "file": ".vscode/launch.json",
+        "hash": "10360066654654575919"
+      },
+      {
+        "file": ".vscode/settings.json",
+        "hash": "9838649694903845798"
+      },
+      {
+        "file": ".vscode/tasks.json",
+        "hash": "14547694306684739747"
+      },
+      {
+        "file": "Archivo.zip",
+        "hash": "5631490714965926355"
       },
       {
         "file": "LICENSE",
@@ -40,103 +68,7 @@
       },
       {
         "file": "README.md",
-        "hash": "12964443023139035627"
-      },
-      {
-        "file": "coverage/clover.xml",
-        "hash": "8379656485830748224"
-      },
-      {
-        "file": "coverage/coverage-final.json",
-        "hash": "13382945304697779567"
-      },
-      {
-        "file": "coverage/lcov-report/base.css",
-        "hash": "6204767174569381253"
-      },
-      {
-        "file": "coverage/lcov-report/block-navigation.js",
-        "hash": "1801078621803424330"
-      },
-      {
-        "file": "coverage/lcov-report/controllers/facturaController.js.html",
-        "hash": "9441063623301385878"
-      },
-      {
-        "file": "coverage/lcov-report/controllers/index.html",
-        "hash": "14949737378788914436"
-      },
-      {
-        "file": "coverage/lcov-report/favicon.png",
-        "hash": "13402560043085226048"
-      },
-      {
-        "file": "coverage/lcov-report/index.html",
-        "hash": "10179308658579626877"
-      },
-      {
-        "file": "coverage/lcov-report/prettify.css",
-        "hash": "8163588510556258587"
-      },
-      {
-        "file": "coverage/lcov-report/prettify.js",
-        "hash": "15884788582061322779"
-      },
-      {
-        "file": "coverage/lcov-report/prisma/client.js.html",
-        "hash": "16379973164964379523"
-      },
-      {
-        "file": "coverage/lcov-report/prisma/index.html",
-        "hash": "5213211752694054792"
-      },
-      {
-        "file": "coverage/lcov-report/services/FacturaService.js.html",
-        "hash": "11404853531996090549"
-      },
-      {
-        "file": "coverage/lcov-report/services/index.html",
-        "hash": "14292519091476127721"
-      },
-      {
-        "file": "coverage/lcov-report/sort-arrow-sprite.png",
-        "hash": "254831142482329146"
-      },
-      {
-        "file": "coverage/lcov-report/sorter.js",
-        "hash": "17053119163225536857"
-      },
-      {
-        "file": "coverage/lcov-report/utils/index.html",
-        "hash": "6772880571566970406"
-      },
-      {
-        "file": "coverage/lcov-report/utils/redis.js.html",
-        "hash": "12763798785449321750"
-      },
-      {
-        "file": "coverage/lcov.info",
-        "hash": "11739270234775840279"
-      },
-      {
-        "file": "dist/src/__tests__/example.test.js",
-        "hash": "16754745389425799580"
-      },
-      {
-        "file": "dist/src/controllers/UsuarioController.js",
-        "hash": "16416858222347946284"
-      },
-      {
-        "file": "dist/src/controllers/facturaController.js",
-        "hash": "3257024747490600604"
-      },
-      {
-        "file": "dist/src/prisma/client.js",
-        "hash": "3916513569919523090"
-      },
-      {
-        "file": "dist/tsconfig.tsbuildinfo",
-        "hash": "18334996565580725175"
+        "hash": "1473132428794958194"
       },
       {
         "file": "e2e-playwright-tests/facturaLoad.test.js",
@@ -583,60 +515,12 @@
         "hash": "1473132428794958194"
       },
       {
-        "file": "facturacion-autonomos.worktrees/origin-develop/coverage/clover.xml",
-        "hash": "3142507195611099109"
-      },
-      {
-        "file": "facturacion-autonomos.worktrees/origin-develop/coverage/coverage-final.json",
-        "hash": "15753941481085060538"
-      },
-      {
-        "file": "facturacion-autonomos.worktrees/origin-develop/coverage/lcov-report/base.css",
-        "hash": "6204767174569381253"
-      },
-      {
-        "file": "facturacion-autonomos.worktrees/origin-develop/coverage/lcov-report/block-navigation.js",
-        "hash": "1801078621803424330"
-      },
-      {
-        "file": "facturacion-autonomos.worktrees/origin-develop/coverage/lcov-report/favicon.png",
-        "hash": "13402560043085226048"
-      },
-      {
-        "file": "facturacion-autonomos.worktrees/origin-develop/coverage/lcov-report/index.html",
-        "hash": "8110108317807482205"
-      },
-      {
-        "file": "facturacion-autonomos.worktrees/origin-develop/coverage/lcov-report/prettify.css",
-        "hash": "8163588510556258587"
-      },
-      {
-        "file": "facturacion-autonomos.worktrees/origin-develop/coverage/lcov-report/prettify.js",
-        "hash": "15884788582061322779"
-      },
-      {
-        "file": "facturacion-autonomos.worktrees/origin-develop/coverage/lcov-report/sort-arrow-sprite.png",
-        "hash": "254831142482329146"
-      },
-      {
-        "file": "facturacion-autonomos.worktrees/origin-develop/coverage/lcov-report/sorter.js",
-        "hash": "17053119163225536857"
-      },
-      {
-        "file": "facturacion-autonomos.worktrees/origin-develop/coverage/lcov.info",
-        "hash": "3244421341483603138"
-      },
-      {
         "file": "facturacion-autonomos.worktrees/origin-develop/eslint.config.js",
         "hash": "13198662551394567525"
       },
       {
         "file": "facturacion-autonomos.worktrees/origin-develop/jest.config.js",
         "hash": "12837093717705703504"
-      },
-      {
-        "file": "facturacion-autonomos.worktrees/origin-develop/package-lock.json",
-        "hash": "3692951282171429541"
       },
       {
         "file": "facturacion-autonomos.worktrees/origin-develop/package.json",
@@ -711,16 +595,8 @@
         "hash": "9868924355974910585"
       },
       {
-        "file": "facturacion-autonomos/.DS_Store",
-        "hash": "14577726182825861041"
-      },
-      {
         "file": "facturacion-autonomos/.eslintrc.js",
         "hash": "9921663616756293269"
-      },
-      {
-        "file": "facturacion-autonomos/.github/.DS_Store",
-        "hash": "14911118795349567347"
       },
       {
         "file": "facturacion-autonomos/.github/workflows/ci.yml",
@@ -729,10 +605,6 @@
       {
         "file": "facturacion-autonomos/.gitignore",
         "hash": "15556858353316736662"
-      },
-      {
-        "file": "facturacion-autonomos/.nx/.DS_Store",
-        "hash": "11666714220210530821"
       },
       {
         "file": "facturacion-autonomos/.rest",
@@ -745,82 +617,6 @@
       {
         "file": "facturacion-autonomos/README.md",
         "hash": "12964443023139035627"
-      },
-      {
-        "file": "facturacion-autonomos/coverage/clover.xml",
-        "hash": "16138899810769490217"
-      },
-      {
-        "file": "facturacion-autonomos/coverage/coverage-final.json",
-        "hash": "15753941481085060538"
-      },
-      {
-        "file": "facturacion-autonomos/coverage/lcov-report/base.css",
-        "hash": "6204767174569381253"
-      },
-      {
-        "file": "facturacion-autonomos/coverage/lcov-report/block-navigation.js",
-        "hash": "1801078621803424330"
-      },
-      {
-        "file": "facturacion-autonomos/coverage/lcov-report/controllers/facturaController.js.html",
-        "hash": "6612613790752146917"
-      },
-      {
-        "file": "facturacion-autonomos/coverage/lcov-report/controllers/index.html",
-        "hash": "2120534924777611023"
-      },
-      {
-        "file": "facturacion-autonomos/coverage/lcov-report/favicon.png",
-        "hash": "13402560043085226048"
-      },
-      {
-        "file": "facturacion-autonomos/coverage/lcov-report/index.html",
-        "hash": "6093323708806897679"
-      },
-      {
-        "file": "facturacion-autonomos/coverage/lcov-report/prettify.css",
-        "hash": "8163588510556258587"
-      },
-      {
-        "file": "facturacion-autonomos/coverage/lcov-report/prettify.js",
-        "hash": "15884788582061322779"
-      },
-      {
-        "file": "facturacion-autonomos/coverage/lcov-report/prisma/client.js.html",
-        "hash": "12248571990750843814"
-      },
-      {
-        "file": "facturacion-autonomos/coverage/lcov-report/prisma/index.html",
-        "hash": "14524516061839566231"
-      },
-      {
-        "file": "facturacion-autonomos/coverage/lcov-report/services/FacturaService.js.html",
-        "hash": "18034100118453414894"
-      },
-      {
-        "file": "facturacion-autonomos/coverage/lcov-report/services/index.html",
-        "hash": "12842350563331647335"
-      },
-      {
-        "file": "facturacion-autonomos/coverage/lcov-report/sort-arrow-sprite.png",
-        "hash": "254831142482329146"
-      },
-      {
-        "file": "facturacion-autonomos/coverage/lcov-report/sorter.js",
-        "hash": "17053119163225536857"
-      },
-      {
-        "file": "facturacion-autonomos/coverage/lcov-report/utils/index.html",
-        "hash": "6772880571566970406"
-      },
-      {
-        "file": "facturacion-autonomos/coverage/lcov-report/utils/redis.js.html",
-        "hash": "12763798785449321750"
-      },
-      {
-        "file": "facturacion-autonomos/coverage/lcov.info",
-        "hash": "3244421341483603138"
       },
       {
         "file": "facturacion-autonomos/dist/src/__tests__/example.test.js",
@@ -839,20 +635,12 @@
         "hash": "3916513569919523090"
       },
       {
-        "file": "facturacion-autonomos/dist/tsconfig.tsbuildinfo",
-        "hash": "18334996565580725175"
-      },
-      {
         "file": "facturacion-autonomos/eslint.config.js",
         "hash": "5622909830700304706"
       },
       {
         "file": "facturacion-autonomos/facturacion-autonomos@1.0.0",
         "hash": "3244421341483603138"
-      },
-      {
-        "file": "facturacion-autonomos/hello-prisma/.DS_Store",
-        "hash": "9085814489721131735"
       },
       {
         "file": "facturacion-autonomos/invoice-service/src/controllers/ClienteController.ts",
@@ -887,10 +675,6 @@
         "hash": "2119182665606583814"
       },
       {
-        "file": "facturacion-autonomos/package-lock.json",
-        "hash": "3911767750418109988"
-      },
-      {
         "file": "facturacion-autonomos/package.json",
         "hash": "8292293132753570127"
       },
@@ -915,10 +699,6 @@
         "hash": "15763968502603598352"
       },
       {
-        "file": "facturacion-autonomos/src/.DS_Store",
-        "hash": "8595572699251504129"
-      },
-      {
         "file": "facturacion-autonomos/src/__tests__/example.test.js",
         "hash": "6461097994620287797"
       },
@@ -932,7 +712,7 @@
       },
       {
         "file": "facturacion-autonomos/src/controllers/facturaController.js",
-        "hash": "6211558552183212326"
+        "hash": "16908010496007401135"
       },
       {
         "file": "facturacion-autonomos/src/controllers/usuarioController.js",
@@ -972,7 +752,7 @@
       },
       {
         "file": "facturacion-autonomos/src/services/FacturaService.js",
-        "hash": "9861826644494649488"
+        "hash": "10969533098791239192"
       },
       {
         "file": "facturacion-autonomos/src/utils/date.js",
@@ -1003,16 +783,48 @@
         "hash": "16928832813004294234"
       },
       {
-        "file": "facturacion-autonomos/vscode-profile-2025-05-30-19-24-51.cpuprofile",
-        "hash": "1874982501845424048"
-      },
-      {
         "file": "facturacion-autonomos@1.0.0",
         "hash": "3244421341483603138"
       },
       {
-        "file": "hello-prisma/.DS_Store",
-        "hash": "9085814489721131735"
+        "file": "hello-prisma/.env.example",
+        "hash": "4769252133707317585"
+      },
+      {
+        "file": "hello-prisma/.gitignore",
+        "hash": "9806903400471159540"
+      },
+      {
+        "file": "hello-prisma/README.md",
+        "hash": "11119727872509808484"
+      },
+      {
+        "file": "hello-prisma/package.json",
+        "hash": "17063527997659000487"
+      },
+      {
+        "file": "hello-prisma/prisma/migrations/20250604074216_init/migration.sql",
+        "hash": "12291436643711009661"
+      },
+      {
+        "file": "hello-prisma/prisma/migrations/migration_lock.toml",
+        "hash": "872437952673290735"
+      },
+      {
+        "file": "hello-prisma/prisma/schema.prisma",
+        "hash": "4418566346091984253"
+      },
+      {
+        "file": "hello-prisma/src/caching.ts",
+        "hash": "14845213618307168376"
+      },
+      {
+        "file": "hello-prisma/src/queries.ts",
+        "hash": "8410822290079136034"
+      },
+      {
+        "file": "hello-prisma/tsconfig.json",
+        "hash": "12491134511964332092"
       },
       {
         "file": "invoice-service/src/controllers/ClienteController.ts",
@@ -1040,7 +852,11 @@
       },
       {
         "file": "jest.config.js",
-        "hash": "17050407442738498034"
+        "hash": "6455856437861189823"
+      },
+      {
+        "file": "jest.setup.js",
+        "hash": "17675467911956404282"
       },
       {
         "file": "nx.json",
@@ -1048,31 +864,27 @@
       },
       {
         "file": "package.json",
-        "hash": "9861535281963233912"
-      },
-      {
-        "file": "prisma/migrations/20250528024832_init/migration.sql",
-        "hash": "16430808923376219612"
-      },
-      {
-        "file": "prisma/migrations/migration_lock.toml",
-        "hash": "872437952673290735"
+        "hash": "11144550247047509446"
       },
       {
         "file": "prisma/schema.prisma",
-        "hash": "15683100203207888828"
+        "hash": "3753751146838765512"
       },
       {
         "file": "prisma/seed.js",
-        "hash": "9605395095268327605"
+        "hash": "14874120259137712340"
+      },
+      {
+        "file": "scripts/clean-secrets.sh",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "server.js",
+        "hash": "9813125546685983435"
       },
       {
         "file": "setup.sql",
         "hash": "15763968502603598352"
-      },
-      {
-        "file": "src/.DS_Store",
-        "hash": "8595572699251504129"
       },
       {
         "file": "src/__tests__/example.test.js",
@@ -1080,59 +892,83 @@
       },
       {
         "file": "src/__tests__/facturaController.test.js",
-        "hash": "5001025632975231874"
+        "hash": "7338675823352751232"
+      },
+      {
+        "file": "src/config/jwt.j",
+        "hash": "10577682506852199287"
       },
       {
         "file": "src/controllers/clienteController.js",
-        "hash": "8882011579356600873"
+        "hash": "9230829138073924603"
       },
       {
         "file": "src/controllers/facturaController.js",
-        "hash": "980287147930794503"
+        "hash": "10426381560885136846"
       },
       {
         "file": "src/controllers/usuarioController.js",
-        "hash": "915213563137539264"
+        "hash": "14270152258372404538"
       },
       {
         "file": "src/dto/facturae.dto.js",
-        "hash": "11067371573710452160"
+        "hash": "11194543955782635873"
       },
       {
         "file": "src/index.js",
-        "hash": "11782480781774031299"
+        "hash": "17968762506402336004"
       },
       {
         "file": "src/jobs/processFacturasJob.js",
-        "hash": "2276377384471727204"
+        "hash": "9897968647879163067"
       },
       {
         "file": "src/jobs/scheduler.js",
         "hash": "7563327964552031194"
       },
       {
+        "file": "src/middlewares/auth.js",
+        "hash": "370177979966396559"
+      },
+      {
+        "file": "src/middlewares/errorHandler.js",
+        "hash": "9448373211249748338"
+      },
+      {
         "file": "src/middlewares/validate.js",
-        "hash": "772871001126910967"
+        "hash": "2990253527266963117"
       },
       {
         "file": "src/prisma/client.js",
-        "hash": "11103276189666349434"
+        "hash": "2118160003654099789"
+      },
+      {
+        "file": "src/routes/auth.js",
+        "hash": "17366500385564795556"
       },
       {
         "file": "src/routes/cliente.js",
-        "hash": "3941663039011029641"
+        "hash": "207565245847260277"
       },
       {
         "file": "src/routes/factura.js",
-        "hash": "16319222545674142669"
+        "hash": "1849856995177743841"
       },
       {
         "file": "src/routes/usuario.js",
-        "hash": "16969373097790994874"
+        "hash": "2742036538595152264"
       },
       {
         "file": "src/services/FacturaService.js",
-        "hash": "1760740560158225452"
+        "hash": "10969533098791239192"
+      },
+      {
+        "file": "src/services/UserService.js",
+        "hash": "10652830301460547758"
+      },
+      {
+        "file": "src/services/clienteService.js",
+        "hash": "3372170061292119036"
       },
       {
         "file": "src/utils/date.js",
@@ -1148,15 +984,11 @@
       },
       {
         "file": "src/utils/puppeteer.js",
-        "hash": "9868924355974910585"
+        "hash": "4878422126955860471"
       },
       {
         "file": "src/utils/redis.js",
         "hash": "16845111717489435849"
-      },
-      {
-        "file": "test-results/.last-run.json",
-        "hash": "5700232692745566255"
       },
       {
         "file": "test-server.js",
@@ -1165,10 +997,6 @@
       {
         "file": "tsconfig.json",
         "hash": "16928832813004294234"
-      },
-      {
-        "file": "vscode-profile-2025-05-30-19-24-51.cpuprofile",
-        "hash": "1874982501845424048"
       }
     ]
   }

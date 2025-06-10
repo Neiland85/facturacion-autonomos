@@ -10,56 +10,23 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
-    services:
-      postgres:
-        image: postgres:15
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD || 'postgres' }}
-          POSTGRES_DB: testdb
-        ports:
-          - 5432:5432
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-
-    env:
-      DATABASE_URL: "postgresql://postgres:${{ secrets.POSTGRES_PASSWORD || 'postgres' }}@localhost:5432/testdb?schema=public"
-      JWT_SECRET: ${{ secrets.JWT_SECRET || 'jwt_secret_for_ci_only' }}
-      JWT_EXPIRES_IN: "7d"
-      OPEN_API_KEY: ${{ secrets.OPEN_API_KEY || 'api_key_for_ci_only' }}
-
     steps:
       - uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
-          node-version: 20.x
+          node-version: 18.x
           cache: npm
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Generate Prisma client
-        run: npx prisma generate --schema=./prisma/schema.prisma
-
-      - name: Check Prisma client generation
-        run: |
-          if [ ! -d "node_modules/.prisma/client" ]; then
-            echo "Prisma client was not generated correctly"
-            exit 1
-          fi
-
-      - name: Run Prisma migrations
-        run: npx prisma migrate deploy
+        run: npx prisma generate
 
       - name: Seed database
-        run: |
-          chmod +x prisma/seed.js
-          node prisma/seed.js
+        run: npx prisma db seed
 
       - name: Run lint
         run: npm run lint
@@ -68,9 +35,9 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps chromium
 
-      - name: Run unit tests
+      - name: Test unitarios
         run: npm run test
-        
+
       - name: Run E2E tests
         run: npm run test:e2e
         continue-on-error: true
