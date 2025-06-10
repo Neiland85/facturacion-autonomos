@@ -10,6 +10,21 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:14
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: testing
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     steps:
       - uses: actions/checkout@v4
 
@@ -22,10 +37,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # Añadir DATABASE_URL para asegurarnos de que Prisma puede generar el cliente
+      # Usar PostgreSQL en lugar de SQLite
       - name: Setup environment
         run: |
-          echo "DATABASE_URL=file:./dev.db" >> $GITHUB_ENV
+          echo "DATABASE_URL=postgresql://postgres:postgres@localhost:5432/testing" >> $GITHUB_ENV
 
       - name: Generate Prisma client
         run: npx prisma generate
@@ -38,17 +53,16 @@ jobs:
             exit 1
           fi
 
-      # Crear una base de datos SQLite para testing
+      # Ejecutar migraciones en PostgreSQL
       - name: Setup database
-        run: |
-          npx prisma migrate deploy
+        run: npx prisma migrate deploy
         env:
-          DATABASE_URL: file:./dev.db
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/testing
 
       - name: Seed database
         run: npx prisma db seed
         env:
-          DATABASE_URL: file:./dev.db
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/testing
 
       - name: Run lint
         run: npm run lint
@@ -59,7 +73,11 @@ jobs:
 
       - name: Test unitarios
         run: npm run test
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/testing
 
       - name: Run E2E tests
         run: npm run test:e2e
         continue-on-error: true
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/testing
