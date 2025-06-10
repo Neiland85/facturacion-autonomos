@@ -1,0 +1,17 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint", // Linting JS/TS
+    "esbenp.prettier-vscode", // Formateo Prettier
+    "prisma.prisma", // Soporte Prisma
+    "streetsidesoftware.code-spell-checker", // Corrector ortográfico
+    "ms-azuretools.vscode-docker", // Soporte Docker (si usas contenedores)
+    "github.copilot", // GitHub Copilot
+    "github.copilot-chat", // Copilot Chat
+    "orta.vscode-jest", // Soporte para Jest
+    "firsttris.vscode-jest-runner", // Ejecutar tests Jest desde el editor
+    "eamodio.gitlens", // Git avanzado
+    "mhutchie.git-graph", // Visualización de ramas Git
+    "ms-vsliveshare.vsliveshare", // Colaboración en tiempo real
+    "gruntfuggly.todo-tree" // Gestión de TODOs y FIXMEs
+  ]
+}

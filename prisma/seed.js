@@ -1,41 +1,38 @@
+// prisma/seed.js
+#!/usr/bin/env node
 
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 async function main() {
-  // Usuario de prueba (email y password ficticios)
-  const usuario = await prisma.usuario.create({
-    data: {
-      nombre: 'Usuario Demo',
-      email: 'demo@example.com',
-      password: 'demo123', // En un entorno real, asegúrate de hashear la contraseña
-      clientes: {
-        create: [
-          {
-            nombre: 'Cliente Demo',
-            email: 'cliente.demo@example.com',
-            direccion: 'Calle Ejemplo 123',
-            facturas: {
-              create: [
-                {
-                  numero: 'F-0001',
-                  fecha: new Date(),
-                  total: 100.50,
-                  pdfUrl: null
-                }
-              ]
-            }
-          }
-        ]
-      }
-    }
+  // Datos iniciales para pruebas
+  const usuario = await prisma.user.upsert({
+    where: { email: 'test@example.com' },
+    update: {},
+    create: {
+      email: 'test@example.com',
+      name: 'Usuario de Prueba',
+      password: '$2a$10$K8Pg8i0R.8UheDRFu1MI9.87adhg0RyRo0Jld5.QpUY6DQrKZkIoS', // "password" hasheado
+      role: 'user'
+    },
   });
 
-  console.log('Datos de prueba insertados correctamente');
+  const cliente = await prisma.cliente.upsert({
+    where: { id: 1 },
+    update: {},
+    create: {
+      nombre: 'Cliente de Prueba',
+      email: 'cliente@example.com',
+      direccion: 'Calle de Prueba 123',
+      usuarioId: usuario.id
+    },
+  });
+
+  console.log({ usuario, cliente });
 }
 
 main()
-  .catch(e => {
+  .catch((e) => {
     console.error(e);
     process.exit(1);
   })

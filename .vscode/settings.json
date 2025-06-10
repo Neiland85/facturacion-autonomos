@@ -1,0 +1,21 @@
+{
+  "cSpell.words": [
+    "autonomos",
+    "Directorio",
+    "Entorno",
+    "facturacion"
+  ],
+  "editor.codeActions.triggerOnFocusChange": true,
+  "editor.gotoLocation.multipleDefinitions": "goto",
+  "Prettier-SQL.SQLFlavourOverride": "postgresql",
+  "pgsql.connections": [
+
+  ],
+  "editor.defaultFormatter": "inferrinizzard.prettier-sql-vscode",
+  "[jsonc]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "npm-scripts.showStartNotification": false,
+  "nxConsole.generateAiAgentRules": true,
+  "json.schemaDownload.enable": false
+}
