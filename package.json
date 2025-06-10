@@ -18,11 +18,13 @@
   },
   "dependencies": {
     "@prisma/client": "^6.9.0",
+    "bcrypt": "^6.0.0",
     "bullmq": "^5.53.2",
     "date-fns": "^4.1.0",
     "express": "^5.1.0",
     "fast-xml-parser": "^5.2.5",
     "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
     "pdfkit": "^0.17.1",
     "puppeteer": "^24.9.0",
     "redis": "^5.5.6",

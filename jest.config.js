@@ -1,13 +1,16 @@
-// jest.config.js
+// jest.config.js en la raíz del proyecto
 module.exports = {
-  roots: ['<rootDir>/src'],
   testEnvironment: 'node',
-  testMatch: [
-    '**/__tests__/**/*.[jt]s?(x)',
-    '**/?(*.)+(spec|test).[tj]s?(x)'
-  ],
-  moduleFileExtensions: ['js', 'json'],
+  testMatch: ['<rootDir>/src/__tests__/**/*.test.js'],
   collectCoverage: true,
-  coverageDirectory: 'coverage',
-  coveragePathIgnorePatterns: ['/node_modules/']
+  coverageDirectory: './coverage',
+  coveragePathIgnorePatterns: ['/node_modules/', '/dist/', '/facturacion-autonomos/'],
+  setupFilesAfterEnv: ['./jest.setup.js'],
+  testTimeout: 10000,
+  // Esto es importante para resolver el problema de colisión
+  modulePathIgnorePatterns: [
+    '<rootDir>/facturacion-autonomos/',
+    '<rootDir>/facturacion-autonomos.worktrees/',
+    '<rootDir>/dist/'
+  ]
 };

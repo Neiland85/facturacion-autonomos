@@ -4,43 +4,46 @@ datasource db {
 }
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["interactiveTransactions"]
-  output   = "../src/prisma/client"
+  output          = "../src/prisma/client"
 }
 
-model Usuario {
-  id        Int      @id @default(autoincrement())
-  nombre    String
-  email     String   @unique
+model User {
+  id        String    @id @default(uuid())
+  email     String    @unique
   password  String
+  name      String
+  role      String    @default("user")
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  // Añadir estas relaciones inversas
   clientes  Cliente[]
   facturas  Factura[]
-  createdAt DateTime @default(now())
 }
 
 model Cliente {
-  id         Int      @id @default(autoincrement())
-  nombre     String
-  email      String
-  direccion  String
-  usuarioId  Int
-  usuario    Usuario  @relation(fields: [usuarioId], references: [id])
-  facturas   Factura[]
-  createdAt  DateTime @default(now())
+  id        Int       @id @default(autoincrement())
+  nombre    String
+  email     String
+  direccion String
+  usuarioId String // Cambia a String para coincidir con el tipo de User.id
+  usuario   User      @relation(fields: [usuarioId], references: [id]) // Cambia Usuario a User
+  facturas  Factura[]
+  createdAt DateTime  @default(now())
 }
 
 model Factura {
-  id          Int      @id @default(autoincrement())
-  numero      String   @unique
-  fecha       DateTime
-  total       Float
-  usuarioId   Int
-  usuario     Usuario  @relation(fields: [usuarioId], references: [id])
-  clienteId   Int
-  cliente     Cliente  @relation(fields: [clienteId], references: [id])
-  pdfUrl      String?
-  createdAt   DateTime @default(now())
+  id        Int      @id @default(autoincrement())
+  numero    String   @unique
+  fecha     DateTime
+  total     Float
+  usuarioId String // Cambia a String para coincidir con el tipo de User.id
+  usuario   User     @relation(fields: [usuarioId], references: [id]) // Cambia Usuario a User
+  clienteId Int
+  cliente   Cliente  @relation(fields: [clienteId], references: [id])
+  pdfUrl    String?
+  createdAt DateTime @default(now())
 }
 
 // En package.json o en schema.prisma:

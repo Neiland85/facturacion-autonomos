@@ -48,12 +48,12 @@ const FacturaeDTO = z.object({
   })
 });
 
-module.exports = { FacturaeDTO };
-
-// src/services/FacturaService.js (o donde generes el objeto AEAT)
-const { FacturaeDTO } = require('../dto/facturae.dto');
-
-async function exportarFacturaAEAT(factura) {
+/**
+ * Genera un objeto factura para exportar a formato AEAT (Facturae 4.2)
+ * @param {Object} factura - Datos de la factura
+ * @returns {Object} Objeto formateado para AEAT
+ */
+function exportarFacturaAEAT(factura) {
   // 1. Genera el objeto con la estructura AEAT (Facturae 4.2)
   const aeatObj = {
     Facturae: {
@@ -108,4 +108,7 @@ async function exportarFacturaAEAT(factura) {
   return aeatObj;
 }
 
-module.exports = { exportarFacturaAEAT };
+module.exports = { 
+  FacturaeDTO,
+  exportarFacturaAEAT 
+};
