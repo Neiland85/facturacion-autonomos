@@ -15,7 +15,7 @@ jobs:
         image: postgres:15
         env:
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD || 'postgres' }}
           POSTGRES_DB: testdb
         ports:
           - 5432:5432
@@ -26,11 +26,10 @@ jobs:
           --health-retries 5
 
     env:
-      DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/testdb?schema=public"
-      # Añadimos variables para evitar errores con los secretos en CI
-      JWT_SECRET: "test_jwt_secret_for_ci"
+      DATABASE_URL: "postgresql://postgres:${{ secrets.POSTGRES_PASSWORD || 'postgres' }}@localhost:5432/testdb?schema=public"
+      JWT_SECRET: ${{ secrets.JWT_SECRET || 'jwt_secret_for_ci_only' }}
       JWT_EXPIRES_IN: "7d"
-      OPEN_API_KEY: "test_api_key_for_ci"
+      OPEN_API_KEY: ${{ secrets.OPEN_API_KEY || 'api_key_for_ci_only' }}
 
     steps:
       - uses: actions/checkout@v4
@@ -44,11 +43,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # Modificamos el orden y añadimos comprobaciones
       - name: Generate Prisma client
         run: npx prisma generate --schema=./prisma/schema.prisma
 
-      # Verificamos que el cliente se generó correctamente
       - name: Check Prisma client generation
         run: |
           if [ ! -d "node_modules/.prisma/client" ]; then
@@ -59,31 +56,21 @@ jobs:
       - name: Run Prisma migrations
         run: npx prisma migrate deploy
 
-      # Modificamos el comando de seed para asegurarnos que tiene los permisos correctos
       - name: Seed database
         run: |
           chmod +x prisma/seed.js
           node prisma/seed.js
 
-      # Corregimos la ejecución de lint
       - name: Run lint
         run: npm run lint
-        continue-on-error: true  # Para ver todos los errores pero no detener la ejecución
+        continue-on-error: true
 
-      # Aseguramos que Playwright se instale correctamente
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps chromium
 
-      # Ejecutamos los tests unitarios
       - name: Run unit tests
         run: npm run test
         
-      # Y finalmente los tests e2e si están configurados
       - name: Run E2E tests
         run: npm run test:e2e
-        develop
-        continue-on-error: true  # Para permitir ver resultados incluso si fallan
-
-      - name: Start server
-        run: npm run start &
-        main
+        continue-on-error: true

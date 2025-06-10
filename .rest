@@ -4,8 +4,8 @@ Content-Type: application/json
 OPEN_API_KEY: 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
 
 {
-  "nombre": "Juan Pérez",
-  "email": "juan.perez@example.com",
-  "telefono": "123456789",
-  "direccion": "Calle Falsa 123"
+  "nombre": "Nayara Arroyo",
+  "email": "@tecomolaboca.com",
+  "telefono": "612-345-678",
+  "direccion": "Calle del cigarro 13"
 }
