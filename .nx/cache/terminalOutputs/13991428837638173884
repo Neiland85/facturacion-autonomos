@@ -1,0 +1,18 @@
+
+> facturacion-autonomos@1.0.0 dev
+> nodemon --watch src --ext ts,json --exec ts-node src/index.ts
+
+[1G[0K[33m[nodemon] 3.1.9[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): src/**/*[39m
+[33m[nodemon] watching extensions: ts,json[39m
+[32m[nodemon] starting `ts-node src/index.ts`[39m
+sh: ts-node: command not found
+[31m[nodemon] failed to start process, "ts-node" exec not found[39m
+[31m[nodemon] Error
+    at Bus.<anonymous> (/Users/estudio/node_modules/nodemon/lib/nodemon.js:165:25)
+    at Bus.emit (node:events:519:35)
+    at ChildProcess.<anonymous> (/Users/estudio/node_modules/nodemon/lib/monitor/run.js:199:11)
+    at ChildProcess.emit (node:events:507:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)[39m
+[1G[0K⠙[1G[0K

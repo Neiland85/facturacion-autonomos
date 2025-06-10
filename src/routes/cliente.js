@@ -1,8 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const clienteController = require('../controllers/clienteController');
+const validateCliente = require('../middlewares/validate');
 
 router.get('/', clienteController.getAll);
 router.get('/:id', clienteController.getById);
-
+router.post('/', validateCliente, clienteController.create);
+router.put('/:id', validateCliente, clienteController.update);
+router.delete('/:id', clienteController.delete);
+ 
 module.exports = router;

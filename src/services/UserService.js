@@ -25,29 +25,16 @@ class UserService {
     const hashedPassword = await bcrypt.hash(password, 10);
     
     // Crear el usuario
-    const user = await prisma.user.create({
+    const user = prisma.user.create({
       data: {
-        email,
+        email: userData.email,
         password: hashedPassword,
-        name,
-        role
+        name: userData.name,
+        role: userData.role || 'user'
       }
     });
     
-    // Generar token JWT
-    const token = generateToken({
-      id: user.id,
-      email: user.email,
-      role: user.role
-    });
-    
-    // Excluir la contraseña en la respuesta
-    const { password: _, ...userWithoutPassword } = user;
-    
-    return {
-      user: userWithoutPassword,
-      token
-    };
+    return Promise.resolve(user);
   }
   
   /**

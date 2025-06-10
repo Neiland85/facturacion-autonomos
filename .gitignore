@@ -1,4 +1,6 @@
 # Dependencias
+# Node modules
+main
 node_modules/
 .pnp/
 .pnp.js
@@ -12,7 +14,7 @@ package-lock.json
 /playwright/.cache/
 /jest-output/
 /.nyc_output/
-/mochawesome-report/
+/mochawesome-report/ 
 
 # Variables de entorno
 .env
@@ -33,6 +35,21 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+
+# Prisma: salida generada y bases de datos locales
+/generated/
+prisma/*.db
+prisma/*.sqlite
+prisma/dev.db
+prisma/dev.sqlite
+
+# Prisma: migraciones y cliente generado (no ignores el schema principal)
+prisma/migrations/
+!prisma/schema.prisma
+
+# Salida de cobertura de tests
+coverage/
+*.lcov
 
 # Sistema operativo
 .DS_Store
@@ -89,6 +106,11 @@ ver*.json
 /docs/api/
 /jsdoc/
 /typedoc/
+
+# Husky (solo incluye hooks específicos)
+.husky/*
+!.husky/pre-commit
+!.husky/commit-msg
 
 # Innecesarios
 .eslintcache

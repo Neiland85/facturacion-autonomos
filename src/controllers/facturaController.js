@@ -1,6 +1,7 @@
 // src/controllers/facturaController.js
 const FacturaService = require('../services/FacturaService');
 
+// Método para obtener todas las facturas
 exports.getAll = async (req, res) => {
   try {
     const page = parseInt(req.query.page, 10) || 1;
@@ -26,6 +27,7 @@ exports.getAll = async (req, res) => {
   }
 };
 
+// Método para obtener una factura por ID
 exports.getById = async (req, res) => {
   try {
     const factura = await FacturaService.getById(req.params.id);
@@ -37,40 +39,61 @@ exports.getById = async (req, res) => {
   }
 };
 
+// Método para crear una factura
 exports.create = async (req, res) => {
   const { error } = FacturaService.validate(req.body);
   if (error) return res.status(400).json({ error: error.details[0].message });
   try {
     const factura = await FacturaService.create(req.body);
     res.status(201).json(factura);
-  } catch {
+  } catch (error) {
+    console.error('Error al crear factura:', error);
     res.status(500).json({ error: 'Error al crear factura' });
   }
 };
 
+// Método para actualizar una factura
 exports.update = async (req, res) => {
   const { error } = FacturaService.validate(req.body);
   if (error) return res.status(400).json({ error: error.details[0].message });
   try {
     const factura = await FacturaService.update(req.params.id, req.body);
+    if (!factura) return res.status(404).json({ error: 'Factura no encontrada' });
     res.json(factura);
   } catch (err) {
     if (err.code === 'P2025') {
       return res.status(404).json({ error: 'Factura no encontrada' });
     }
+    console.error('Error al actualizar factura:', err);
     res.status(500).json({ error: 'Error al actualizar factura' });
   }
 };
 
+// Método para eliminar una factura
+// Método para eliminar una factura
 exports.delete = async (req, res) => {
   try {
-    await FacturaService.deleteFactura(req.params.id);
-    res.json({ message: 'Factura eliminada' });
-  } catch (err) {
-    if (err.code === 'P2025') {
+    const { id } = req.params;
+    
+    // Llamamos al servicio para eliminar la factura
+    const result = await FacturaService.deleteFactura(Number(id));
+    
+    // Verificamos si el servicio indica que la factura no fue encontrada (devuelve false)
+    if (result === false) {
       return res.status(404).json({ error: 'Factura no encontrada' });
     }
-    console.error('Error al eliminar factura:', err);
-    res.status(500).json({ error: 'Error al eliminar factura' });
+    
+    // Si la operación fue exitosa, devolvemos el mensaje esperado con estado 200 explícito
+    return res.status(200).json({ message: 'Factura eliminada' });
+    
+  } catch (error) {
+    // Si es un error de "no encontrado" (código P2025 de Prisma)
+    if (error.code === 'P2025') {
+      return res.status(404).json({ error: 'Factura no encontrada' });
+    }
+    
+    // Para cualquier otro error
+    console.error('Error al eliminar factura:', error);
+    return res.status(500).json({ error: 'Error al eliminar factura' });
   }
 };

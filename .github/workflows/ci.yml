@@ -12,11 +12,11 @@ jobs:
 
     services:
       postgres:
-        image: postgres:15
+        image: postgres:14
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: testdb
+          POSTGRES_DB: testing
         ports:
           - 5432:5432
         options: >-
@@ -25,65 +25,59 @@ jobs:
           --health-timeout 5s
           --health-retries 5
 
-    env:
-      DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/testdb?schema=public"
-      # Añadimos variables para evitar errores con los secretos en CI
-      JWT_SECRET: "test_jwt_secret_for_ci"
-      JWT_EXPIRES_IN: "7d"
-      OPEN_API_KEY: "test_api_key_for_ci"
-
     steps:
       - uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
-          node-version: 20.x
+          node-version: 18.x
           cache: npm
 
       - name: Install dependencies
         run: npm ci
 
-      # Modificamos el orden y añadimos comprobaciones
-      - name: Generate Prisma client
-        run: npx prisma generate --schema=./prisma/schema.prisma
+      # Usar PostgreSQL en lugar de SQLite
+      - name: Setup environment
+        run: |
+          echo "DATABASE_URL=postgresql://postgres:postgres@localhost:5432/testing" >> $GITHUB_ENV
 
-      # Verificamos que el cliente se generó correctamente
-      - name: Check Prisma client generation
+      - name: Generate Prisma client
+        run: npx prisma generate
+
+      # Verifica que el cliente de Prisma se haya generado correctamente
+      - name: Verify Prisma client generation
         run: |
           if [ ! -d "node_modules/.prisma/client" ]; then
-            echo "Prisma client was not generated correctly"
+            echo "Prisma client not found!"
             exit 1
           fi
 
-      - name: Run Prisma migrations
+      # Ejecutar migraciones en PostgreSQL
+      - name: Setup database
         run: npx prisma migrate deploy
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/testing
 
-      # Modificamos el comando de seed para asegurarnos que tiene los permisos correctos
       - name: Seed database
-        run: |
-          chmod +x prisma/seed.js
-          node prisma/seed.js
+        run: npx prisma db seed
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/testing
 
-      # Corregimos la ejecución de lint
       - name: Run lint
         run: npm run lint
-        continue-on-error: true  # Para ver todos los errores pero no detener la ejecución
+        continue-on-error: true
 
-      # Aseguramos que Playwright se instale correctamente
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps chromium
 
-      # Ejecutamos los tests unitarios
-      - name: Run unit tests
+      - name: Test unitarios
         run: npm run test
-        
-      # Y finalmente los tests e2e si están configurados
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/testing
+
       - name: Run E2E tests
         run: npm run test:e2e
-        develop
-        continue-on-error: true  # Para permitir ver resultados incluso si fallan
-
-      - name: Start server
-        run: npm run start &
-        main
+        continue-on-error: true
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/testing
