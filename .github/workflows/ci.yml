@@ -20,13 +20,35 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+
+      # Añadir DATABASE_URL para asegurarnos de que Prisma puede generar el cliente
+      - name: Setup environment
+        run: |
+          echo "DATABASE_URL=file:./dev.db" >> $GITHUB_ENV
 
       - name: Generate Prisma client
         run: npx prisma generate
 
+      # Verifica que el cliente de Prisma se haya generado correctamente
+      - name: Verify Prisma client generation
+        run: |
+          if [ ! -d "node_modules/.prisma/client" ]; then
+            echo "Prisma client not found!"
+            exit 1
+          fi
+
+      # Crear una base de datos SQLite para testing
+      - name: Setup database
+        run: |
+          npx prisma migrate deploy
+        env:
+          DATABASE_URL: file:./dev.db
+
       - name: Seed database
         run: npx prisma db seed
+        env:
+          DATABASE_URL: file:./dev.db
 
       - name: Run lint
         run: npm run lint
