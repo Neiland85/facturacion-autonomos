@@ -16,8 +16,34 @@
   Node.js · Express · Prisma · Postgres · PDFKit · Puppeteer · Joi · date-fns
 </p>
 
----
+# Facturación para Autónomos
 
+![Typing Animation](https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&size=24&duration=3000&color=00F7FF&center=true&vCenter=true&width=500&lines=Sistema+de+Facturación+para+Autónomos;Optimizado+para+Node.js+y+Prisma)
+
+## Descripción
+Este proyecto es un sistema de facturación diseñado para autónomos. Permite gestionar usuarios, clientes y facturas de manera eficiente, con soporte para generación de PDFs y conexión a bases de datos PostgreSQL.
+
+## Características
+- **Backend**: Construido con Express y Prisma.
+- **Base de datos**: PostgreSQL.
+- **Pruebas**: Configuración con Jest para pruebas unitarias y E2E.
+- **Despliegue**: Preparado para Vercel.
+- **Generación de PDFs**: Integración con PDFKit.
+- **Sembrado de datos**: Scripts automáticos con Prisma.
+
+
+Configura las variables de entorno:
+
+Scripts disponibles
+npm run dev: Ejecuta el servidor en modo desarrollo.
+npm run start: Inicia el servidor en modo producción.
+npm run test: Ejecuta pruebas unitarias.
+npm run test:e2e: Ejecuta pruebas E2E.
+npm run lint: Verifica la calidad del código.
+npx prisma db seed: Siembra la base de datos.
+
+## Despliegue
+El proyecto está configurado para ser desplegado en Vercel. Asegúrate de configurar las variables de entorno necesarias antes del despliegue.
 ## 🚀 Características principales
 
 - API RESTful con Express
@@ -33,7 +59,6 @@
 
 ## 📦 Estructura del proyecto
 
-```plaintext
 src/
   index.js
   controllers/
@@ -49,20 +74,30 @@ prisma/
 .env
 .gitignore
 [package.json](http://_vscodecontentref_/1)
-🛠️ Instalación y uso local
+
+## 🛠️ Instalación y uso local
+
 🧑‍💻 Scripts útiles
 npm run dev — Inicia el servidor con recarga automática (nodemon)
 npm run start — Inicia el servidor en modo producción
 npm run prisma:migrate — Ejecuta migraciones Prisma
 npm run prisma:studio — Abre Prisma Studio para explorar la base de datos
-🌐 Despliegue en Vercel
+
+## 🌐 Despliegue en Vercel
+
 Configura la variable de entorno DATABASE_URL en el dashboard de Vercel.
+
 Despliega con:
 El backend quedará disponible en la URL proporcionada por Vercel.
 🗂️ Modelo de datos principal
+
 🧩 Extensiones recomendadas para VSCode
 Prisma
 ESLint
 Prettier
-📄 Licencia
-Este proyecto está licenciado bajo los términos de la licencia Apache 2.0. Consulta el archivo LICENSE para más detalles.
+
+## 📄 Licencia
+
+Este proyecto está licenciado bajo los términos de la licencia Apache 2.0. Consulta el archivo (./LICENSE) para más detalles. 
+
+## Autor: Neil Muñoz Lago Copyright 2025 Neiland85

@@ -14,6 +14,7 @@ exports.getAll = async (req, res) => {
     const usuarios = await prisma.usuario.findMany();
     res.json(usuarios);
   } catch (error) {
+    console.error('Error al obtener usuarios:', error);
     res.status(500).json({ error: 'Error al obtener usuarios' });
   }
 };
@@ -25,7 +26,7 @@ exports.getById = async (req, res) => {
     });
     if (!usuario) return res.status(404).json({ error: 'Usuario no encontrado' });
     res.json(usuario);
-  } catch (error) {
+  } catch {
     res.status(500).json({ error: 'Error al obtener usuario' });
   }
 };
@@ -36,7 +37,7 @@ exports.create = async (req, res) => {
   try {
     const usuario = await prisma.usuario.create({ data: req.body });
     res.status(201).json(usuario);
-  } catch (err) {
+  } catch {
     res.status(500).json({ error: 'Error al crear usuario' });
   }
 };
@@ -50,7 +51,7 @@ exports.update = async (req, res) => {
       data: req.body
     });
     res.json(usuario);
-  } catch (err) {
+  } catch {
     res.status(500).json({ error: 'Error al actualizar usuario' });
   }
 };
@@ -59,7 +60,7 @@ exports.delete = async (req, res) => {
   try {
     await prisma.usuario.delete({ where: { id: Number(req.params.id) } });
     res.json({ message: 'Usuario eliminado' });
-  } catch (err) {
+  } catch {
     res.status(500).json({ error: 'Error al eliminar usuario' });
   }
 };

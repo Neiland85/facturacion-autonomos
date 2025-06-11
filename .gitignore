@@ -1,26 +1,97 @@
-# node modules
+# Dependencias
 node_modules/
+.pnp/
+.pnp.js
+.yarn/
+package-lock.json
 
-# Entorno y variables sensibles
+# Testing
+/coverage/
+/test-results/
+/playwright-report/
+/playwright/.cache/
+/jest-output/
+/.nyc_output/
+/mochawesome-report/
+
+# Variables de entorno
 .env
 .env.*
+!.env.example
 
-# Salida de Prisma y base de datos local
-/generated/
-prisma/dev.db
-prisma/dev.sqlite
-prisma/*.db
-prisma/*.sqlite
+# Build y distribución
+/dist/
+/build/
+/out/
+/.next/
+/.nuxt/
 
-# Salida de logs y depuración
+# Logs
+logs/
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
-# Salida de Vercel
-.vercel/
+# Sistema operativo
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+Desktop.ini
 
-# Salida de VSCode
-.vscode/
+# IDE y editores
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.sublime-project
+*.sublime-workspace
+.atom/
+.nova/
+.history/
+*.swp
+*.swo
+*~
+
+# Archivos sensibles y credenciales
+*.pem
+*.key
+*.cert
+*.p12
+*.pfx
+**/config/**/*secrets*
+**/secrets/**/*
+
+# Específicos del proyecto
+prisma/.env
+*.tsbuildinfo
 .vercel
-.env
+.netlify
+.serverless
+ver*.json
+
+# Datos
+*.sqlite
+*.sqlite3
+*.db
+
+# Generados por CPU profilers y debugging
+*.cpuprofile
+*.heapsnapshot
+*.heaptimeline
+*.deopt
+
+# Documentación generada
+/docs/api/
+/jsdoc/
+/typedoc/
+
+# Innecesarios
+.eslintcache
+.stylelintcache
+.cache/
+**/node_modules/.cache/
